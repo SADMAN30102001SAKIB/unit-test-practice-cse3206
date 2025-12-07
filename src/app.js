@@ -7,13 +7,7 @@ const {
   getSubtotal,
 } = require("./layer2/cart");
 const { createOrder } = require("./layer3/orderProcessor");
-const { resetStock, checkStock } = require("./layer1/inventory");
-
-const PRODUCTS = {
-  ITEM001: { name: "Laptop", price: 999.99 },
-  ITEM002: { name: "Mouse", price: 29.99 },
-  ITEM003: { name: "Keyboard", price: 79.99 },
-};
+const { PRODUCTS, resetStock, checkStock } = require("./layer1/inventory");
 
 function getProducts() {
   const result = {};

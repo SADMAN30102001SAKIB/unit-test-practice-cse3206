@@ -1,3 +1,9 @@
+const PRODUCTS = {
+  ITEM001: { name: "Laptop", price: 999.99 },
+  ITEM002: { name: "Mouse", price: 29.99 },
+  ITEM003: { name: "Keyboard", price: 79.99 },
+};
+
 const stock = {
   ITEM001: 10,
   ITEM002: 5,
@@ -38,6 +44,7 @@ function resetStock() {
 }
 
 module.exports = {
+  PRODUCTS,
   checkStock,
   isInStock,
   reserveStock,

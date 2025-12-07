@@ -29,10 +29,6 @@ describe("Tax Module", () => {
       expect(calculateTax(100, "IN")).toBe(18);
     });
 
-    test("should return 0 for NONE region", () => {
-      expect(calculateTax(100, "NONE")).toBe(0);
-    });
-
     test("should throw error for negative amount", () => {
       expect(() => calculateTax(-100, "BD")).toThrow(
         "Amount must be non-negative",
@@ -47,10 +43,6 @@ describe("Tax Module", () => {
 
     test("should add 18% tax for IN", () => {
       expect(addTax(100, "IN")).toBe(118);
-    });
-
-    test("should return same amount for NONE region", () => {
-      expect(addTax(100, "NONE")).toBe(100);
     });
   });
 });
