@@ -9,7 +9,7 @@ const {
   removeFromCart,
   applyDiscount,
   processOrder,
-} = require("../../src/app");
+} = require("../src/app");
 
 describe("App Module", () => {
   beforeEach(() => {
@@ -184,7 +184,7 @@ describe("App Module", () => {
       let cart = createCart();
       cart = addToCart(cart, "ITEM001", 1).cart;
 
-      const result = processOrder(cart, "US", "CREDIT_CARD");
+      const result = processOrder(cart, "BD", "CREDIT_CARD");
 
       expect(result.success).toBe(true);
       expect(result.order.orderId).toMatch(/^ORD-\d+$/);
@@ -194,7 +194,7 @@ describe("App Module", () => {
 
     test("should fail for empty cart", () => {
       const cart = createCart();
-      const result = processOrder(cart, "US", "CREDIT_CARD");
+      const result = processOrder(cart, "BD", "CREDIT_CARD");
 
       expect(result.success).toBe(false);
       expect(result.error).toBe("Cart is empty");
@@ -214,7 +214,7 @@ describe("App Module", () => {
       let cart = createCart();
       cart = addToCart(cart, "ITEM001", 1).cart;
 
-      const result = processOrder(cart, "US", "CASH");
+      const result = processOrder(cart, "BD", "CASH");
 
       expect(result.success).toBe(false);
       expect(result.error).toContain("Invalid payment method");
@@ -222,9 +222,9 @@ describe("App Module", () => {
 
     test("should fail for out of stock item", () => {
       let cart = createCart();
-      cart = addToCart(cart, "ITEM003", 1).cart; // ITEM003 has 0 stock
+      cart = addToCart(cart, "ITEM003", 1).cart;
 
-      const result = processOrder(cart, "US", "CREDIT_CARD");
+      const result = processOrder(cart, "BD", "CREDIT_CARD");
 
       expect(result.success).toBe(false);
       expect(result.error).toContain("Insufficient stock");

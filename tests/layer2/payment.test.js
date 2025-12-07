@@ -25,16 +25,16 @@ describe("Payment Module", () => {
   });
 
   describe("calculateFinalAmount", () => {
-    test("should add US tax (8%)", () => {
-      expect(calculateFinalAmount(100, "US")).toBe(108);
+    test("should add BD tax (15%)", () => {
+      expect(calculateFinalAmount(100, "BD")).toBe(115);
     });
 
-    test("should add UK tax (20%)", () => {
-      expect(calculateFinalAmount(100, "UK")).toBe(120);
+    test("should add IN tax (18%)", () => {
+      expect(calculateFinalAmount(100, "IN")).toBe(118);
     });
 
     test("should round currency correctly", () => {
-      expect(calculateFinalAmount(99.99, "US")).toBe(107.99);
+      expect(calculateFinalAmount(99.99, "BD")).toBe(114.99);
     });
   });
 

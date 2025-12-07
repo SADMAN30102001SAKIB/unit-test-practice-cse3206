@@ -68,7 +68,7 @@ describe("Cart Module", () => {
       let cart = createCart();
       cart = addItem(cart, "ITEM001", "Laptop", 100, 2);
       cart = addItem(cart, "ITEM002", "Mouse", 50, 3);
-      expect(getSubtotal(cart)).toBe(350); // (100*2) + (50*3)
+      expect(getSubtotal(cart)).toBe(350);
     });
   });
 
@@ -106,7 +106,6 @@ describe("Cart Module", () => {
       let cart = createCart();
       cart = addItem(cart, "ITEM001", "Item", 33.33, 3);
       cart = applyCartDiscount(cart, 10);
-      // 33.33 * 3 = 99.99, 10% off = 89.991 -> rounded to 89.99
       expect(getTotal(cart)).toBe(89.99);
     });
   });

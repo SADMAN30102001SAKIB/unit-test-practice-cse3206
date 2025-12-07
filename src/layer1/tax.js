@@ -1,9 +1,8 @@
 const TAX_RATES = {
-  US: 0.08,
-  UK: 0.2,
-  DE: 0.19,
+  BD: 0.15,
+  IN: 0.18,
   JP: 0.1,
-  NONE: 0,
+  SG: 0.09,
 };
 
 function getTaxRate(region) {

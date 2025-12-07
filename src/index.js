@@ -115,7 +115,7 @@ async function main() {
           console.log("❌ Cart is empty!");
           break;
         }
-        const region = await prompt("Enter region (US/UK/DE/JP): ");
+        const region = await prompt("Enter region (BD/IN/JP/SG): ");
         const payMethod = await prompt(
           "Payment method (CREDIT_CARD/DEBIT_CARD/PAYPAL): ",
         );

@@ -19,7 +19,7 @@ function processPayment(amount, method) {
   if (amount <= 0) {
     throw new Error("Payment amount must be positive");
   }
-  // Simulate payment processing
+
   return {
     success: true,
     transactionId: `TXN-${Date.now()}`,

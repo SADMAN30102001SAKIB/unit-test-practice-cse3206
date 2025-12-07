@@ -9,16 +9,12 @@ const {
 const { createOrder } = require("./layer3/orderProcessor");
 const { resetStock, checkStock } = require("./layer1/inventory");
 
-// Sample products catalog
 const PRODUCTS = {
   ITEM001: { name: "Laptop", price: 999.99 },
   ITEM002: { name: "Mouse", price: 29.99 },
   ITEM003: { name: "Keyboard", price: 79.99 },
 };
 
-/**
- * Get all products with current stock levels
- */
 function getProducts() {
   const result = {};
   for (const [id, product] of Object.entries(PRODUCTS)) {
@@ -30,23 +26,14 @@ function getProducts() {
   return result;
 }
 
-/**
- * Check if a product exists
- */
 function isValidProduct(itemId) {
   return itemId in PRODUCTS;
 }
 
-/**
- * Get product details
- */
 function getProduct(itemId) {
   return PRODUCTS[itemId] || null;
 }
 
-/**
- * Format cart for display
- */
 function formatCart(cart) {
   if (cart.items.length === 0) {
     return { empty: true, items: [], subtotal: 0, discount: 0, total: 0 };
@@ -65,9 +52,6 @@ function formatCart(cart) {
   };
 }
 
-/**
- * Add item to cart with validation
- */
 function addToCart(cart, itemId, quantity) {
   if (!isValidProduct(itemId)) {
     return { success: false, error: "Invalid product ID", cart };
@@ -86,9 +70,6 @@ function addToCart(cart, itemId, quantity) {
   return { success: true, cart: updatedCart, product, quantity };
 }
 
-/**
- * Remove item from cart
- */
 function removeFromCart(cart, itemId) {
   const item = cart.items.find(i => i.itemId === itemId);
   if (!item) {
@@ -98,9 +79,6 @@ function removeFromCart(cart, itemId) {
   return { success: true, cart: updatedCart, removedItem: item };
 }
 
-/**
- * Apply discount to cart
- */
 function applyDiscount(cart, discountPercent) {
   if (discountPercent < 0 || discountPercent > 100) {
     return {
@@ -117,9 +95,6 @@ function applyDiscount(cart, discountPercent) {
   }
 }
 
-/**
- * Process order
- */
 function processOrder(cart, region, paymentMethod) {
   if (cart.items.length === 0) {
     return { success: false, error: "Cart is empty" };

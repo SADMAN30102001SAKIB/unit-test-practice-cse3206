@@ -7,7 +7,6 @@ const {
 } = require("../../src/layer1/inventory");
 
 describe("Inventory Module", () => {
-  // Reset stock before each test to ensure isolation
   beforeEach(() => {
     resetStock();
   });

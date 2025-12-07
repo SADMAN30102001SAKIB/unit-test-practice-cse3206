@@ -5,7 +5,10 @@ const stock = {
 };
 
 function checkStock(itemId) {
-  return stock[itemId] ?? 0;
+  if (stock[itemId] === undefined) {
+    return 0;
+  }
+  return stock[itemId];
 }
 
 function isInStock(itemId, quantity) {
@@ -21,11 +24,13 @@ function reserveStock(itemId, quantity) {
 }
 
 function releaseStock(itemId, quantity) {
-  stock[itemId] = (stock[itemId] ?? 0) + quantity;
+  if (stock[itemId] === undefined) {
+    stock[itemId] = 0;
+  }
+  stock[itemId] = stock[itemId] + quantity;
   return true;
 }
 
-// For testing - reset stock to initial state
 function resetStock() {
   stock.ITEM001 = 10;
   stock.ITEM002 = 5;
